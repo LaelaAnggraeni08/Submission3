@@ -1,12 +1,12 @@
-import FavoriteRestaurantSearchView from "../src/scripts/views/pages/liked-restaurants/favorite-restaurant-search-view";
+import FavoriteRestaurantView from "../src/scripts/views/pages/liked-restaurants/favorite-restaurant-view";
 import FavoriteRestaurantShowPresenter from "../src/scripts/views/pages/liked-restaurants/favorite-restaurant-show-presenter";
 
 describe('Showing all favorite restaurants', () => {
   let view;
 
   const renderTemplate = () => {
-    view = new FavoriteRestaurantSearchView();
-    document.body.innerHTML = view.getFavoriteRestaurantTemplate();
+    view = new FavoriteRestaurantView();
+    document.body.innerHTML = view.getTemplate();
   };
 
   beforeEach(() => {

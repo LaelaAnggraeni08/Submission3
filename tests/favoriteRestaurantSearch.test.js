@@ -1,5 +1,5 @@
 import FavoriteRestaurantSearchPresenter from '../src/scripts/views/pages/liked-restaurants/favorite-restaurant-search-presenter';
-import FavoriteRestaurantSearchView from '../src/scripts/views/pages/liked-restaurants/favorite-restaurant-search-view';
+import FavoriteRestaurantView from '../src/scripts/views/pages/liked-restaurants/favorite-restaurant-view';
 
 describe('Searching restaurants', () => {
   let presenter;
@@ -14,7 +14,7 @@ describe('Searching restaurants', () => {
   };
 
   const setRestaurantSearchContainer = () => {
-    view = new FavoriteRestaurantSearchView();
+    view = new FavoriteRestaurantView();
     document.body.innerHTML = view.getTemplate();
   };
 
@@ -53,9 +53,9 @@ describe('Searching restaurants', () => {
 
     it('should show the restaurants found by Favorite Restaurants', (done) => {
       document
-        .getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
-          expect(document.querySelectorAll('.restaurant').length).toEqual(3);
+        .getElementById('restaurants')
+        .addEventListener('restaurants:updated', () => {
+          expect(document.querySelectorAll('.restaurant-item').length).toEqual(3);
 
           done();
         });
@@ -63,9 +63,9 @@ describe('Searching restaurants', () => {
       favoriteRestaurants.searchRestaurants.mockImplementation((query) => {
         if (query === 'restaurant a') {
           return [
-            { id: 111, title: 'restaurant abc' },
-            { id: 222, title: 'ada juga restaurant abcde' },
-            { id: 333, title: 'ini juga boleh restaurant a' },
+            { id: 111, name: 'restaurant abc' },
+            { id: 222, name: 'ada juga restaurant abcde' },
+            { id: 333, name: 'ini juga boleh restaurant a' },
           ];
         }
         return [];
@@ -76,8 +76,8 @@ describe('Searching restaurants', () => {
 
     it('should show the name of the restaurants found by Favorite Restaurants', (done) => {
       document
-        .getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
+        .getElementById('restaurants')
+        .addEventListener('restaurants:updated', () => {
           const restaurantTitles = document.querySelectorAll('.restaurant__title');
 
           expect(restaurantTitles.item(0).textContent).toEqual('restaurant abc');
@@ -90,9 +90,9 @@ describe('Searching restaurants', () => {
       favoriteRestaurants.searchRestaurants.mockImplementation((query) => {
         if (query === 'restaurant a') {
           return [
-            { id: 111, title: 'restaurant abc' },
-            { id: 222, title: 'ada juga restaurant abcde' },
-            { id: 333, title: 'ini juga boleh restaurant a' },
+            { id: 111, name: 'restaurant abc' },
+            { id: 222, name: 'ada juga restaurant abcde' },
+            { id: 333, name: 'ini juga boleh restaurant a' },
           ];
         }
         return [];
@@ -102,8 +102,8 @@ describe('Searching restaurants', () => {
     });
 
     it('should show - when the restaurant returned does not contain a title', (done) => {
-      document.getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
+      document.getElementById('restaurants')
+        .addEventListener('restaurants:updated', () => {
           const restaurantTitles = document.querySelectorAll('.restaurant__title');
           expect(restaurantTitles.item(0).textContent)
             .toEqual('-');
@@ -151,9 +151,9 @@ describe('Searching restaurants', () => {
   describe('When no favorite restaurants could be found', () => {
     it('should show the empty message', (done) => {
       document
-        .getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
-          expect(document.querySelectorAll('.restaurants__not__found').length).toEqual(1);
+        .getElementById('restaurants')
+        .addEventListener('restaurants:updated', () => {
+          expect(document.querySelectorAll('.restaurant-item__not__found').length).toEqual(1);
           done();
         });
       favoriteRestaurants.searchRestaurants.mockImplementation((query) => []);
@@ -161,9 +161,9 @@ describe('Searching restaurants', () => {
     });
 
     it('should not show any restaurant', (done) => {
-      document.getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
-          expect(document.querySelectorAll('.restaurant').length).toEqual(0);
+      document.getElementById('restaurants')
+        .addEventListener('restaurants:updated', () => {
+          expect(document.querySelectorAll('.restaurant-item').length).toEqual(0);
           done();
         });
       favoriteRestaurants.searchRestaurants.mockImplementation((query) => []);

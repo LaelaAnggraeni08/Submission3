@@ -31,14 +31,14 @@ const createRestaurantItemTemplate = (restaurant) => `
   <div class="restaurant-item" tabindex="0">
     <div class="restaurant-item__header" tabindex="0">
       <img class="restaurant-item__header__poster" tabindex="0"
-           src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}">
+           src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name || '-'}">
       <div class="restaurant-item__header__rating">
-        <p>⭐️<span class="restaurant-item__header__rating__score" tabindex="0">${restaurant.rating}</span></p>
+        <p>⭐️<span class="restaurant-item__header__rating__score" tabindex="0">${restaurant.rating || '-'}</span></p>
       </div>
     </div>
     <div class="restaurant-item__content">
-      <h3><a href="/#/detail/${restaurant.id}">${restaurant.name}</a></h3>
-      <p tabindex="0">${restaurant.description}</p>
+      <h3 class="restaurant__title"><a href="/#/detail/${restaurant.id}">${restaurant.name || '-'}</a></h3>
+      <p tabindex="0">${restaurant.description || '-'}</p>
     </div>
   </div>
 `;
