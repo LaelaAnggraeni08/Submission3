@@ -156,6 +156,7 @@ describe('Searching restaurants', () => {
           expect(document.querySelectorAll('.restaurant-item__not__found').length).toEqual(1);
           done();
         });
+      // eslint-disable-next-line no-unused-vars
       favoriteRestaurants.searchRestaurants.mockImplementation((query) => []);
       searchRestaurants('restaurant a');
     });
@@ -166,6 +167,7 @@ describe('Searching restaurants', () => {
           expect(document.querySelectorAll('.restaurant-item').length).toEqual(0);
           done();
         });
+      // eslint-disable-next-line no-unused-vars
       favoriteRestaurants.searchRestaurants.mockImplementation((query) => []);
       searchRestaurants('restaurant a');
     });

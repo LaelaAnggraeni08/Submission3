@@ -1,5 +1,5 @@
-import FavoriteRestaurantView from "../src/scripts/views/pages/liked-restaurants/favorite-restaurant-view";
-import FavoriteRestaurantShowPresenter from "../src/scripts/views/pages/liked-restaurants/favorite-restaurant-show-presenter";
+import FavoriteRestaurantView from '../src/scripts/views/pages/liked-restaurants/favorite-restaurant-view';
+import FavoriteRestaurantShowPresenter from '../src/scripts/views/pages/liked-restaurants/favorite-restaurant-show-presenter';
 
 describe('Showing all favorite restaurants', () => {
   let view;
@@ -19,6 +19,7 @@ describe('Showing all favorite restaurants', () => {
         getAllRestaurants: jest.fn().mockImplementation(() => []),
       };
 
+      // eslint-disable-next-line no-new
       new FavoriteRestaurantShowPresenter({
         view,
         favoriteRestaurants,
@@ -38,6 +39,7 @@ describe('Showing all favorite restaurants', () => {
         getAllRestaurants: jest.fn().mockImplementation(() => []),
       };
 
+      // eslint-disable-next-line no-new
       new FavoriteRestaurantShowPresenter({
         view,
         favoriteRestaurants,
@@ -69,6 +71,7 @@ describe('Showing all favorite restaurants', () => {
         ]),
       };
 
+      // eslint-disable-next-line no-new
       new FavoriteRestaurantShowPresenter({
         view,
         favoriteRestaurants,

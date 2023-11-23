@@ -8,6 +8,7 @@ const FavoriteRestaurantArray = {
       return;
     }
 
+    // eslint-disable-next-line consistent-return, eqeqeq
     return favoriteRestaurants.find((restaurant) => restaurant.id == id);
   },
 

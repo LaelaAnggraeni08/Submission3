@@ -11,7 +11,9 @@ const Favorite = {
   },
 
   async afterRender() {
+    // eslint-disable-next-line no-new
     new FavoriteRestaurantShowPresenter({ view, favoriteRestaurants: FavoriteRestaurantIdb });
+    // eslint-disable-next-line no-new
     new FavoriteRestaurantSearchPresenter({ view, favoriteRestaurants: FavoriteRestaurantIdb });
   },
 };

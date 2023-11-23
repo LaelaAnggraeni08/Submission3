@@ -1,6 +1,7 @@
-import { createRestaurantItemTemplate } from "../../templates/template-creator";
+import { createRestaurantItemTemplate } from '../../templates/template-creator';
 
 class FavoriteRestaurantView {
+  // eslint-disable-next-line class-methods-use-this
   getTemplate() {
     return `
             <div class="content">
@@ -13,6 +14,7 @@ class FavoriteRestaurantView {
             `;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   runWhenUserIsSearching(callback) {
     document.getElementById('query').addEventListener('change', (event) => {
       callback(event.target.value);
@@ -32,6 +34,7 @@ class FavoriteRestaurantView {
     document.getElementById('restaurants').dispatchEvent(new Event('restaurants:updated'));
   }
 
+  // eslint-disable-next-line class-methods-use-this
   _getEmptyRestaurantTemplate() {
     return `
       <div class="restaurant-item__not__found">
