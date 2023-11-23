@@ -103,9 +103,9 @@ body {
     min-height: 380px;
     width: 100%;
     text-align: center;
-    background-image: url('../public/hero.jpg');
+    background-image: url('../public/images/hero-small.jpg');
     background-position: center;
-    background-color: #045275;
+    background-color: transparent;
     background-repeat: no-repeat;
 }
 

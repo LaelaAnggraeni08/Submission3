@@ -51,6 +51,11 @@
     .app-bar .app-bar__brand h1 {
         font-size: 2em;
     }
+
+    .hero {
+        background-image: url(../public/images/hero-large.jpg);
+    }
+
 }
 
 @media screen and (min-width: 850px) {
